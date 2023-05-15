@@ -188,6 +188,24 @@ export class AppComponent {
         this.selectedIndex + 1
       );
       event.preventDefault();
+    } else if (event.keyCode === 13) {
+      const selectedUser = this.getSelectedUser();
+      if (selectedUser) {
+        console.log('Selected user:', selectedUser);
+        // do something with the selected user, e.g. navigate to their profile page
+      }
+    }
+  }
+
+  getSelectedUser() {
+    console.log('select index', this.selectedIndex);
+    if (
+      this.selectedIndex >= 0 &&
+      this.selectedIndex < this.sportsData.length
+    ) {
+      return this.sportsData[this.selectedIndex];
+    } else {
+      return null;
     }
   }
 }

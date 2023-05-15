@@ -30,7 +30,10 @@
 
       <ul *ngIf="user.UserName != '' && !user.optionSelectedUserName">
         <li
-          *ngFor="let data of sportsData | filterPipeUserName: user.UserName;let i = index"
+          *ngFor="
+            let data of sportsData | filterPipeUserName: user.UserName;
+            let i = index
+          "
           [class.selected]="i === selectedIndex"
           (click)="selectData(data, user, 'userName')"
         >
@@ -56,11 +59,14 @@
 
       <ul *ngIf="user.Email != '' && !user.optionSelectedEmail">
         <li
-          *ngFor="let data of sportsData | filterPipeEmail: user.Email; let i = index"
+          *ngFor="
+            let data of sportsData | filterPipeEmail: user.Email;
+            let i = index
+          "
           [class.selected]="i === selectedIndex"
           (click)="selectData(data, user, 'Email')"
         >
-          {{ data.Email }} || {{ data.UserName }}
+          {{ data.Email }} || {{ data.UserName }}|| {{ selectedIndex }}
         </li>
       </ul>
     </div>
